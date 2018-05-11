@@ -13,15 +13,15 @@ class TestS3Storage(unittest.TestCase):
 
     #A act
     to_be_upl = open("files/test.txt", 'rb')
-    storage.store(dest="tests/foo/boo.txt", source=to_be_upl)
+    storage.store(dest="tests/test.txt", source=to_be_upl)
 
     #A assert
-    assert storage.contains(path="tests/foo/boo.txt")
-    assert False == storage.contains(path="should/not/exists.txt")
+    assert storage.contains(path="tests/test.txt")
+    assert False == storage.contains(path="should/not/exist.txt")
 
   def there_is_source_file(self, path):
     my_file = open(path, 'w')
-    my_file.write("content of test file")
+    my_file.write("his is dummy content")
     my_file.close()
   
   def there_is_s3_resource_available(self):
